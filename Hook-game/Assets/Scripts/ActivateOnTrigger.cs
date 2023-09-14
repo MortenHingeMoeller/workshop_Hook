@@ -1,46 +1,44 @@
-using KinematicCharacterController.Walkthrough.AddingImpulses;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ActivateOnTrigger : MonoBehaviour
 {
+    //public List<GameObject> objToActivate = new List<GameObject>();
 
-    private void Start()
-    {
-        Debug.Log("I Work");
-    }
+    public GameObject objectToActivate;
+
+    public GameObject objectToDeActivate;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<MyCharacterController>()) 
+        if (other.tag == "Player")
         {
-            Debug.Log("Got the player");
+            ActivateObject();
+            DeactivateObject();
+
+            DeactivateThisTrigger();
         }
     }
 
-    /*
-     *   private void OnTriggerEnter(Collider other)
-        {
-            if (!isBeingTeleportedTo)
-            {
-                ExampleCharacterController cc = other.GetComponent<ExampleCharacterController>();
-                if (cc)
-                {
-                    cc.Motor.SetPositionAndRotation(TeleportTo.transform.position, TeleportTo.transform.rotation);
-
-                    if (OnCharacterTeleport != null)
-                    {
-                        OnCharacterTeleport(cc);
-                    }
-                    TeleportTo.isBeingTeleportedTo = true;
-                }
-            }
-
-            isBeingTeleportedTo = false;
+    private void ActivateObject() 
+    { 
+        if (objectToActivate != null) 
+        { 
+            objectToActivate.gameObject.SetActive(true);
         }
-     * 
-     * 
-     * */
+    }
 
+    private void DeactivateObject()
+    {
+        if (objectToDeActivate != null)
+        {
+            objectToDeActivate.gameObject.SetActive(false);
+        }
+    }
+
+    private void DeactivateThisTrigger()
+    {
+        this.gameObject.SetActive(false);
+    }
 }
