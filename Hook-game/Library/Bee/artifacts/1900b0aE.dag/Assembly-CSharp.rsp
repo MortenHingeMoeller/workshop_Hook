@@ -413,6 +413,7 @@
 "Assets/KinematicCharacterController/Walkthrough/8- Creating a moving platform/Scripts/MyPlayer.cs"
 "Assets/KinematicCharacterController/Walkthrough/9- Custom collision filtering/Scripts/MyCharacterController.cs"
 "Assets/KinematicCharacterController/Walkthrough/9- Custom collision filtering/Scripts/MyPlayer.cs"
+"Assets/Scripts/ActivateOnTrigger.cs"
 -langversion:9.0
 
 /deterministic
